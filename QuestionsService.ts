@@ -1,6 +1,7 @@
-import { AnswerType, QuestionProps } from './components/question';
+import { BasicQuestionType } from './basicQuestionType';
+import { AnswerType } from './components/question';
 
-export interface QuestionType extends QuestionProps {
+export interface QuestionType extends BasicQuestionType {
   answer?: number;
 }
 class QuestionsService {
@@ -16,6 +17,19 @@ class QuestionsService {
           "50'000",
           "100'000",
           ">100'000",
+          'Keine Antwort',
+        ],
+      },
+      {
+        question: 'Welche Bezeichnung beschreibt Ihren Wohnort am genauesten?',
+        answerType: AnswerType.RADIO,
+        answerOptions: [
+          'Grossstadt',
+          'Stadt',
+          'Vorort',
+          'Dorf',
+          'Bergdorf',
+          'Keine Antwort',
         ],
       },
     ];

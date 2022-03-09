@@ -31,6 +31,16 @@ export function App({}: AppProps) {
         question={questions[questionIndex].question}
         answerOptions={questions[questionIndex].answerOptions}
         answerType={questions[questionIndex].answerType}
+        isFirst={questionIndex == 0}
+        isLast={questionIndex == questions.length - 1}
+        previousClicked={() => {
+          if (questionIndex > 0) setQuestionIndex(questionIndex - 1);
+        }}
+        nextClicked={() => {
+          console.log('what');
+          if (questionIndex < questions.length - 1)
+            setQuestionIndex(questionIndex + 1);
+        }}
       />
     );
   } else {
