@@ -11,19 +11,17 @@ import CardContent from '@mui/material/CardContent/CardContent';
 import Typography from '@mui/material/Typography/Typography';
 import React from 'react';
 
-interface QuestionProps {
-  question: string;
+export enum AnswerType {
+  RADIO = 1,
+  NUMBER = 2,
 }
-const Question = ({ question }: QuestionProps) => {
-  const options = [
-    "15'000",
-    "20'000",
-    "30'000",
-    "50'000",
-    "100'000",
-    ">100'000",
-  ];
-  const radioButtons = options.map((v) => {
+export interface QuestionProps {
+  question: string;
+  answerType: AnswerType;
+  answerOptions?: string[];
+}
+const Question = ({ question, answerType, answerOptions }: QuestionProps) => {
+  const radioButtons = answerOptions.map((v) => {
     return <FormControlLabel value={v} control={<Radio />} label={v} />;
   });
   return (

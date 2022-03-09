@@ -1,13 +1,12 @@
-import Box from '@mui/material/Box/Box';
 import React from 'react';
 import { render } from 'react-dom';
-import Question from './components/question';
 import Grid from '@mui/material/Grid/Grid';
+import Box from '@mui/material/Box/Box';
+
 import './style.css';
+import { App } from './app';
 
-interface AppProps {}
-
-function App({}: AppProps) {
+const AppContainer = () => {
   return (
     <Grid
       container
@@ -18,11 +17,11 @@ function App({}: AppProps) {
     >
       <Grid item xs={3}>
         <Box>
-          <Question question="Wie viel sind sie bereit für ein Auto zu zahlen?" />
+          <App />
         </Box>
       </Grid>
     </Grid>
   );
-}
+};
 
-render(<App />, document.getElementById('root'));
+render(<AppContainer />, document.getElementById('root'));
