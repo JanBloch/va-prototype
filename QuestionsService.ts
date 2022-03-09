@@ -32,6 +32,28 @@ class QuestionsService {
           'Keine Antwort',
         ],
       },
+      {
+        question:
+          'Wählen Sie alle Aktivitäten aus, welche Sie regelmässig mit einem Auto tätigen oder planen mit einem Auto zu tätigen.',
+        answerType: AnswerType.RADIO,
+        answerOptions: [
+          'Arbeitsweg',
+          'Inlandreisen',
+          'Auslandreisen',
+          'Warentransport',
+          'Sonstige Fortbewegung',
+          'Vergnügungsfahrt',
+        ],
+      },
+      {
+        question: 'Wie hoch sollte das Kofferraumvolumen sein?',
+        answerType: AnswerType.RADIO,
+        answerOptions: ['200l', '500l', '1000l', '1500l', '>2000l'],
+      },
+      {
+        question: 'Wie viele Sitzplätze sollte ihr Auto mindestens haben?',
+        answerType: AnswerType.NUMBER,
+      },
     ];
   }
 }
