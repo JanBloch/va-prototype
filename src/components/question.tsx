@@ -12,6 +12,7 @@ import Typography from "@mui/material/Typography/Typography";
 import React from "react";
 import { BasicQuestionType } from "../basicQuestionType";
 import { QuestionType } from "../QuestionsService";
+import QuestionMultipleSelect from "./question-multiple-select";
 import QuestionRadioInput from "./question-radio-input";
 
 export enum AnswerType {
@@ -23,8 +24,8 @@ export interface QuestionProps extends BasicQuestionType {
   isLast: boolean;
   previousClicked: Function;
   nextClicked: Function;
-  setAnswer: (a: string | number) => void;
-  answer?: string | number;
+  setAnswer: (a: string | string[]) => void;
+  answer?: string | string[];
 }
 const Question = ({
   question,
@@ -42,6 +43,14 @@ const Question = ({
     if (answerType == AnswerType.RADIO && !allowMultipleSelection) {
       return (
         <QuestionRadioInput
+          answer={answer}
+          answerOptions={answerOptions}
+          setAnswer={setAnswer}
+        />
+      );
+    } else if (answerType == AnswerType.RADIO && allowMultipleSelection) {
+      return (
+        <QuestionMultipleSelect
           answer={answer}
           answerOptions={answerOptions}
           setAnswer={setAnswer}

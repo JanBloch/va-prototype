@@ -1,8 +1,8 @@
-import { FormControlLabel, Radio, RadioGroup } from '@mui/material';
-import React from 'react';
+import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
+import React from "react";
 interface QuestionRadioInputProps {
-  setAnswer: (a: string | number) => void;
-  answer?: string | number;
+  setAnswer: (a: string | string[]) => void;
+  answer?: string | string[];
   answerOptions: string[];
 }
 const QuestionRadioInput = ({
@@ -19,7 +19,7 @@ const QuestionRadioInput = ({
       onChange={(e, value) => {
         setAnswer(value);
       }}
-      value={answer ?? ''}
+      value={answer ?? ""}
     >
       {...radioButtons}
     </RadioGroup>
