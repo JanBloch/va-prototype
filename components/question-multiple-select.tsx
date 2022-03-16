@@ -25,6 +25,7 @@ const QuestionMultipleSelect = ({
     <FormControlLabel
       control={
         <Checkbox
+          key={v}
           onChange={(event, checkboxChecked) => {
             const _checked = [...checked];
             _checked[i] = checkboxChecked;
