@@ -53,8 +53,14 @@ class QuestionsService {
         answerOptions: ['200l', '500l', '1000l', '1500l', '>2000l'],
       },
       {
-        question: 'Wie viele Sitzplätze sollte ihr Auto mindestens haben?',
-        answerType: AnswerType.NUMBER,
+        question: 'Wie viele Sitzplätze benötigen Sie?',
+        answerType: AnswerType.RADIO,
+        answerOptions: [
+          'Nicht mehr als zwei',
+          'Nicht mehr als vier',
+          'Nicht mehr als sechs',
+          'Mehr als sechs',
+        ],
       },
     ];
   }
