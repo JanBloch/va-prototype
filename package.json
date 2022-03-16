@@ -19,6 +19,7 @@
     "eject": "react-scripts-ts eject"
   },
   "devDependencies": {
+    "@types/node": "^17.0.21",
     "react-scripts-ts": "latest"
   }
 }
