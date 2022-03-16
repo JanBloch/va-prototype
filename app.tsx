@@ -6,7 +6,7 @@ import { CircularProgress } from '@mui/material';
 interface AppProps {}
 
 export function App({}: AppProps) {
-  const [questions, setQuestions] = useState<QuestionType>();
+  const [questions, setQuestions] = useState<QuestionType[]>();
   const [questionIndex, setQuestionIndex] = useState<number>(-1);
 
   useEffect(() => {
@@ -17,17 +17,15 @@ export function App({}: AppProps) {
     setQuestionIndex(0);
   }, questions);
 
-  const options = [
-    "15'000",
-    "20'000",
-    "30'000",
-    "50'000",
-    "100'000",
-    ">100'000",
-  ];
   if (questionIndex != -1) {
     return (
       <Question
+        setAnswer={(answer) => {
+          const _questions = [...questions];
+          _questions[questionIndex].answer = answer;
+          setQuestions(_questions);
+        }}
+        answer={questions[questionIndex].answer}
         question={questions[questionIndex].question}
         answerOptions={questions[questionIndex].answerOptions}
         answerType={questions[questionIndex].answerType}
@@ -37,7 +35,6 @@ export function App({}: AppProps) {
           if (questionIndex > 0) setQuestionIndex(questionIndex - 1);
         }}
         nextClicked={() => {
-          console.log('what');
           if (questionIndex < questions.length - 1)
             setQuestionIndex(questionIndex + 1);
         }}

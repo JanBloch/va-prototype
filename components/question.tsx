@@ -21,19 +21,24 @@ export interface QuestionProps extends BasicQuestionType {
   isLast: boolean;
   previousClicked: Function;
   nextClicked: Function;
+  setAnswer: (a: string | number) => void;
+  answer?: string | number;
 }
 const Question = ({
   question,
   answerType,
+  answer,
   answerOptions,
   isFirst,
   isLast,
   previousClicked,
   nextClicked,
+  setAnswer,
 }: QuestionProps) => {
   const radioButtons = answerOptions.map((v) => {
     return <FormControlLabel value={v} control={<Radio />} label={v} />;
   });
+  console.log(answer);
   return (
     <Card>
       <CardContent>
@@ -41,7 +46,15 @@ const Question = ({
           {question}
         </Typography>
         <FormControl>
-          <RadioGroup name="radio-buttons-group">{...radioButtons}</RadioGroup>
+          <RadioGroup
+            name="radio-buttons-group"
+            onChange={(e, value) => {
+              setAnswer(value);
+            }}
+            value={answer ?? ''}
+          >
+            {...radioButtons}
+          </RadioGroup>
         </FormControl>
       </CardContent>
       <CardActions>

@@ -2,7 +2,7 @@ import { BasicQuestionType } from './basicQuestionType';
 import { AnswerType } from './components/question';
 
 export interface QuestionType extends BasicQuestionType {
-  answer?: number;
+  answer?: number | string;
 }
 class QuestionsService {
   getQuestions(): QuestionType[] {
