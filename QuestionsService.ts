@@ -31,6 +31,7 @@ class QuestionsService {
           'Bergdorf',
           'Keine Antwort',
         ],
+        allowMultipleSelection: false,
       },
       {
         question:
@@ -44,6 +45,7 @@ class QuestionsService {
           'Sonstige Fortbewegung',
           'Vergnügungsfahrt',
         ],
+        allowMultipleSelection: true,
       },
       {
         question: 'Wie hoch sollte das Kofferraumvolumen sein?',

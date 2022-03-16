@@ -4,4 +4,5 @@ export interface BasicQuestionType {
   question: string;
   answerType: AnswerType;
   answerOptions?: string[];
+  allowMultipleSelection?: boolean;
 }

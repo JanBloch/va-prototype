@@ -25,6 +25,7 @@ export function App({}: AppProps) {
           _questions[questionIndex].answer = answer;
           setQuestions(_questions);
         }}
+        allowMultipleSelection={questions[questionIndex].allowMultipleSelection}
         answer={questions[questionIndex].answer}
         question={questions[questionIndex].question}
         answerOptions={questions[questionIndex].answerOptions}

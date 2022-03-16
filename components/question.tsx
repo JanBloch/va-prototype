@@ -11,6 +11,8 @@ import CardContent from '@mui/material/CardContent/CardContent';
 import Typography from '@mui/material/Typography/Typography';
 import React from 'react';
 import { BasicQuestionType } from '../basicQuestionType';
+import { QuestionType } from '../QuestionsService';
+import QuestionRadioInput from './question-radio-input';
 
 export enum AnswerType {
   RADIO = 1,
@@ -34,28 +36,26 @@ const Question = ({
   previousClicked,
   nextClicked,
   setAnswer,
+  allowMultipleSelection,
 }: QuestionProps) => {
-  const radioButtons = answerOptions.map((v) => {
-    return <FormControlLabel value={v} control={<Radio />} label={v} />;
-  });
-  console.log(answer);
+  const inputComponent = (() => {
+    if (answerType == AnswerType.RADIO && !allowMultipleSelection) {
+      return (
+        <QuestionRadioInput
+          answer={answer}
+          answerOptions={answerOptions}
+          setAnswer={setAnswer}
+        />
+      );
+    }
+  })();
   return (
     <Card>
       <CardContent>
         <Typography variant="h5" component="div">
           {question}
         </Typography>
-        <FormControl>
-          <RadioGroup
-            name="radio-buttons-group"
-            onChange={(e, value) => {
-              setAnswer(value);
-            }}
-            value={answer ?? ''}
-          >
-            {...radioButtons}
-          </RadioGroup>
-        </FormControl>
+        <FormControl>{inputComponent}</FormControl>
       </CardContent>
       <CardActions>
         <Button size="small" disabled={isFirst} onClick={previousClicked}>
