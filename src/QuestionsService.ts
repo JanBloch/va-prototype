@@ -31,11 +31,10 @@ class QuestionsService {
           "Bergdorf",
           "Keine Antwort",
         ],
-        allowMultipleSelection: false,
       },
       {
         question:
-          "Wählen Sie alle Aktivitäten aus, welche Sie regelmässig mit einem Auto tätigen oder planen mit einem Auto zu tätigen.",
+          "Für welche der folgenden Aktivitäten werden Sie ihr Auto am meisten verwenden?",
         answerType: AnswerType.RADIO,
         answerOptions: [
           "Arbeitsweg",
@@ -45,7 +44,6 @@ class QuestionsService {
           "Sonstige Fortbewegung",
           "Vergnügungsfahrt",
         ],
-        allowMultipleSelection: true,
       },
       {
         question: "Wie hoch sollte das Kofferraumvolumen sein?",
